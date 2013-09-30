@@ -6,6 +6,12 @@ Generates a user-friendly dropdown which is based on a users Country and current
 
 ![screen](/timezone-screen.png)
 
+### Usuage
+
+```php
+$this->Timezone->select('input_name', $options, $attributes);
+```
+
 ### Generated markup
 
 ```html
