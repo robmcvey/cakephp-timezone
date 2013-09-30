@@ -9,7 +9,7 @@ Generates a user-friendly dropdown which is based on a users Country and current
 ### Usuage
 
 ```php
-$this->Timezone->select('input_name', $options, $attributes);
+echo $this->Timezone->select('input_name', $options, $attributes);
 ```
 
 ### Generated markup
