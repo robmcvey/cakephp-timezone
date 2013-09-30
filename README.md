@@ -1,6 +1,6 @@
 # Timezone Helper
 
-Generates a user-friendly dropdown which which is based on a users Country and current time.
+Generates a user-friendly dropdown which is based on a users Country and current time.
 
 ### Screenshot
 
