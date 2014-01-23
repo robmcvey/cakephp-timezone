@@ -2,11 +2,38 @@
 
 Generates a user-friendly dropdown which is based on a users Country and current time.
 
-### Screenshot
-
 ![screen](/timezone-screen.png)
 
-### Usuage
+### Installation
+
+_[Manual]_
+
+* Download this: [http://github.com/robmcvey/cakephp-timezone/zipball/master](http://github.com/robmcvey/cakephp-timezone/zipball/master)
+* Unzip that download.
+* Copy the resulting folder to `app/Plugin`
+* Rename the folder you just copied to `Timezone`
+
+_[GIT Submodule]_
+
+In your app directory type:
+
+```shell
+git submodule add -b master git://github.com/robmcvey/cakephp-timezone.git Plugin/Timezone
+git submodule init
+git submodule update
+```
+
+_[GIT Clone]_
+
+In your `Plugin` directory type:
+
+```shell
+git clone -b master git://github.com/robmcvey/cakephp-timezone.git Timezone
+```
+
+### Usage
+
+Remember to add `CakePlugin::load('Timezone');` to your app's bootstrap file. 
 
 ```php
 echo $this->Timezone->select('input_name', $options, $attributes);
