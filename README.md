@@ -1,4 +1,4 @@
-# Timezone Helper
+# CakePHP Timezone Helper Plugin
 
 Generates a user-friendly dropdown which is based on a users Country and current time.
 
