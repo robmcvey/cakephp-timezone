@@ -8,7 +8,6 @@
 // 
 App::uses('View', 'View');
 App::uses('Helper', 'View');
-App::uses('TimezoneHelper', 'View/Helper');
 
 /**
  * TimezoneHelper Test Case
