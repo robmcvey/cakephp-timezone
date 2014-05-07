@@ -287,8 +287,8 @@ class TimezoneHelper extends AppHelper {
 		/*This make possible have a localized table name */
 		$tmp = explode('.', $fieldName);
 		if (count($tmp) == 1) {
-			$field = "data[User][$fieldName]";
-			$tblName = 'User';
+			$tblName = Inflector::camelize(Inflector::singularize($this->params['controller']));
+			$field = "data[$tblName][$fieldName]";
 		} else {
 			$field = "data[$tmp[0]][$tmp[1]]";
 			$tblName = $tmp[0];
