@@ -7,7 +7,7 @@
 //  Copyright 2013 Rob McVey. All rights reserved.
 // 
 App::uses('View', 'View');
-App::uses('Helper', 'View');
+App::uses('TimezoneHelper', 'Timezone.View/Helper');
 
 /**
  * TimezoneHelper Test Case
