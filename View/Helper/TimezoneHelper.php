@@ -286,7 +286,6 @@ class TimezoneHelper extends AppHelper {
 
 		/* This makes it possible to have a localized field name */
 		$parts = explode('.', $fieldName);
-		debug($parts);
 		if (count($parts) == 1) {
 			$model = Inflector::camelize(Inflector::singularize($this->params['controller']));
 			$field = "data[$model][$fieldName]";

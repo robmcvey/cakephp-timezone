@@ -57,7 +57,7 @@ class TimezoneHelperTest extends CakeTestCase {
 	public function test_select() {
 		$select = $this->Timezone->select('timezone');
 		$regexes = array(
-			"/(<select\sid\=\"\w+\"\sname\=\"\w+\[\w+\]\[timezone\]\">\n)/",
+			"/(<select\sid\=\"UserTimezone\"\sname\=\"data\[User\]\[timezone\]\">\n)/",
 			"/(<optgroup\slabel\=\"\w+\">\n)/",
 			"/(\t<option\svalue\=\"\w+\/\w+\">GMT\s)/",
 			"/(\t<option\svalue\=\"\w+\/\w+\">GMT\s\+|\-)(\d{1,2}\:\d{1,2}\s\(\d{1,2}\:\d{1,2})(am|pm)(\)<\/option>\n)/",
@@ -65,7 +65,7 @@ class TimezoneHelperTest extends CakeTestCase {
 			"/<\/select>/"
 		);
 		foreach ($regexes as $reg) {
-			$this->assertEqual(1 ,preg_match($reg , $select));
+			$this->assertRegExp($reg , $select);
 		}
 	}
 	
@@ -99,7 +99,7 @@ class TimezoneHelperTest extends CakeTestCase {
 		foreach ($options as $country => $timezones) {
 			$this->assertFalse(empty($timezones));
 			foreach ($timezones as $timezone) {
-				$this->assertEqual(1 , preg_match($regex , $timezone));
+				$this->assertRegExp($regex, $timezone);
 			}
 		}
 	}
@@ -112,7 +112,7 @@ class TimezoneHelperTest extends CakeTestCase {
 	public function test_value_attribute() {
 		$select = $this->Timezone->select('timezone', null, array('value' => 'Europe/London'));
 		$regexes = array(
-			"/(<select\sid\=\"\w+\"\sname\=\"\w+\[\w+\]\[timezone\]\">\n)/",
+			"/(<select\sid\=\"UserTimezone\"\sname\=\"data\[User\]\[timezone\]\">\n)/",
 			"/(<optgroup\slabel\=\"\w+\">\n)/",
 			"/(\t<option\svalue\=\"\w+\/\w+\">GMT\s)/",
 			"/(\t<option\sselected\=\"selected\"\svalue\=\"Europe\/London\">)/",
@@ -121,7 +121,7 @@ class TimezoneHelperTest extends CakeTestCase {
 			"/<\/select>/"
 		);
 		foreach ($regexes as $reg) {
-			$this->assertEqual(1 ,preg_match($reg , $select));
+			$this->assertRegExp($reg, $select);
 		}
 	}
 	
@@ -141,7 +141,7 @@ class TimezoneHelperTest extends CakeTestCase {
 			"/<\/select>/"
 		);
 		foreach ($regexes as $reg) {
-			$this->assertEqual(1 ,preg_match($reg , $select));
+			$this->assertRegExp($reg, $select);
 		}
 	}
 	
