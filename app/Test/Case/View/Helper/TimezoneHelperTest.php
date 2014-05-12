@@ -6,9 +6,17 @@
 //  Created by Rob Mcvey on 2013-09-30.
 //  Copyright 2013 Rob McVey. All rights reserved.
 // 
+App::uses('Controller', 'Controller');
+App::uses('CakeRequest', 'Network');
 App::uses('View', 'View');
-App::uses('Helper', 'View');
-App::uses('TimezoneHelper', 'View/Helper');
+App::uses('TimezoneHelper', 'Timezone.View/Helper');
+
+/**
+ * UsersTestController class
+ */
+class UsersTestController extends Controller {
+
+}
 
 /**
  * TimezoneHelper Test Case
@@ -22,8 +30,12 @@ class TimezoneHelperTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$View = new View();
+		$this->Controller = new UsersTestController();
+		$View = new View($this->Controller);
 		$this->Timezone = new TimezoneHelper($View);
+		$this->Timezone->request = new CakeRequest('users/edit', false);
+		$this->Timezone->request->params['controller'] = 'users';
+		$this->Timezone->request->params['action'] = 'edit';
 	}
 
 /**
