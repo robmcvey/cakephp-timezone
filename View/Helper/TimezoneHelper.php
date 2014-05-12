@@ -284,10 +284,20 @@ class TimezoneHelper extends AppHelper {
 			}
 		}
 
-		if (isset($class)) {
-			$select = "<select id=\"UserTimezone\" class=\"$class\" name=\"data[User][$fieldName]\">\n";
+		/* This makes it possible to have a localized field name */
+		$tmp = explode('.', $fieldName);
+		if (count($tmp) == 1) {
+			$tblName = Inflector::camelize(Inflector::singularize($this->params['controller']));
+			$field = "data[$tblName][$fieldName]";
 		} else {
-			$select = "<select id=\"UserTimezone\" name=\"data[User][$fieldName]\">\n";
+			$field = "data[$tmp[0]][$tmp[1]]";
+			$tblName = $tmp[0];
+		}
+
+		if (isset($class)) {
+			$select = "<select id=\"${tblName}Timezone\" class=\"$class\" name=\"$field\">\n";
+		} else {
+			$select = "<select id=\"${tblName}Timezone\" name=\"$field\">\n";
 		}
 
 		// Default option when none passed
