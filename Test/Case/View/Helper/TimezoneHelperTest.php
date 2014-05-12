@@ -112,6 +112,27 @@ class TimezoneHelperTest extends CakeTestCase {
 	}	
 	
 /**
+ * test_select_passed_model_not_user_field_not_timezone
+ *
+ * @return void
+ * @author Rob Mcvey
+ **/
+	public function test_select_passed_model_not_user_field_not_timezone() {
+		$select = $this->Timezone->select('Post.clock');
+		$regexes = array(
+			"/(<select\sid\=\"PostClock\"\sname\=\"data\[Post\]\[clock\]\">\n)/",
+			"/(<optgroup\slabel\=\"\w+\">\n)/",
+			"/(\t<option\svalue\=\"\w+\/\w+\">GMT\s)/",
+			"/(\t<option\svalue\=\"\w+\/\w+\">GMT\s\+|\-)(\d{1,2}\:\d{1,2}\s\(\d{1,2}\:\d{1,2})(am|pm)(\)<\/option>\n)/",
+			"/(<\/optgroup>\n)/",
+			"/<\/select>/"
+		);
+		foreach ($regexes as $reg) {
+			$this->assertRegExp($reg , $select);
+		}
+	}	
+	
+/**
  * test options contain every Country
  *
  * @return void
