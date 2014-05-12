@@ -425,4 +425,3 @@ class TimezoneHelper extends AppHelper {
 	}
 
 }
-	
